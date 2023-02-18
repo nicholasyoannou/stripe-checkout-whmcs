@@ -27,3 +27,6 @@ This following is required:
 
 Optional prerequisites:
 - NGINX/Apache, if on VPS/dedicated, to reverse proxy
+
+# License
+When used, please credit me somewhere. It can be used for non-profit, commercial use, whatever, as long as this is the case. Even if you fork this code, and make it completely different, just pop my name in the credits would be much appreciated :)
