@@ -20,13 +20,19 @@ Quite simply, on checkout (via WHMCS) as soon as the user submits to pay:
 - if the invoice has been paid, a payment will be added to the invoice with the transaction ID of the Stripe invoice
 - the user is redirected back to the invoice page with a 'payment successful' message
 
+## Installation and setup
+### Prerequisites
 This following is required:
 - WHMCS installation with administrator access (in order to create API credentials)
 - A VPS/instance able to host a Python3 program of FastAPI, which is publicly exposable (does not matter on port but ports 443/80 recommended)
 - A Redis instance (can be self-hosted (for best security and performance, on same instance as FastAPI) or using free services like [Upstash](https://upstash.com/))
 
 Optional prerequisites:
-- NGINX/Apache, if on VPS/dedicated, to reverse proxy
+- NGINX/Apache, if on VPS/dedicated, to reverse proxy FastAPI
+
+## WHMCS install
+1. Download the file in the WHMCS folder in the GitHub repository, and near the bottom of the file, replace "INSERT_YOUR_API_URL_HERE_INCLUDING_HTTPS_OR_HTTP_PART" with your FastAPI billing hostname including https/http part, e.g. https://stripeworker.bobsbakery.tld.
+2. Upload the file in the WHMCS directory, ./modules/gateways 
 
 # License
 When used, please credit me somewhere. It can be used for non-profit, commercial use, whatever, as long as this is the case. Even if you fork this code, and make it completely different, just pop my name in the credits would be much appreciated :)
