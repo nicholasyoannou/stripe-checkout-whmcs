@@ -8,6 +8,13 @@ A simple Stripe Checkout for WHMCS using FastAPI, and simple WHMCS forwarding lo
 ## Information
 Stripe's checkout system allows use of their fraud protection system (if the Stripe account is eligible) allowing, if a customer chargebacks, no chargeback fees up to $25,000 (as far as I'm aware). To be eligible for Stripe's Chargeback Protection Program, payments need to be processed through Stripe's Checkout page infrastructure, hence this plugin.
 
+### Known issues, and contributional info
+There are known issues as of writing:
+- Purchases from the same email will, under the Stripe panel, for some reason treat it as a different customer (will create a new customer) and the transactions by them won't appear under the same user - but all transactions made by them can be filtered by e-mail as enforcement of the WHMCS billing email is enforced.
+- (Not a bug but improvement) After checkout it redirects back to FastAPI, but I'd like to scrap FastAPI entirely in the future, or slowly slowly move over to PHP. Due to my inexperience I've coded it with assistance of the WHMCS docs and done with what I know.
+
+Contributions would much be appreciated; would like this to be a community effort as I feel this code (at the moment) is leaning towards the low-effort side of some un-noticable bugs, and efficiency-side can be a lot better with it being done fully in PHP, WHMCS handling everything without the need of FastAPI and Redis.
+
 ## How this plugin works
 Quite simply, on checkout (via WHMCS) as soon as the user submits to pay:
 - the user email, invoice number, and amount is submitted (POST) via form data to FastAPI
