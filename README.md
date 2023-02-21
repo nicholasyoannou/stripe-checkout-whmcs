@@ -37,9 +37,15 @@ This following is required:
 Optional prerequisites:
 - NGINX/Apache, if on VPS/dedicated, to reverse proxy FastAPI
 
-## WHMCS install
+### WHMCS install
 1. Download the file in the WHMCS folder in the GitHub repository, and near the bottom of the file, replace "INSERT_YOUR_API_URL_HERE_INCLUDING_HTTPS_OR_HTTP_PART" with your FastAPI billing hostname including https/http part, e.g. https://stripeworker.bobsbakery.tld.
 2. Upload the file in the WHMCS directory, ./modules/gateways 
+
+### FastAPI Install
+1. Download the `api` folder to the computer which is going to host the FastAPI program. `pip install -r requirements.txt` to install dependencies.
+2. Edit the environment variables file (.env file), if you haven't already.
+3. Launch server.py in the background (however you normally), I personally use PM2 (`pm2 start server.py --name FastAPI --interpreter python3` - see PM2 docs for more info on how to use it)
+4. (Optional, but recommended) Reverse proxy FastAPI under NGINX/Apache (or whatever web server you usually use), using the billing URL you specified in the environment variables file.
 
 # License
 When used, please credit me somewhere. It can be used for non-profit, commercial use, whatever, as long as this is the case. Even if you fork this code, and make it completely different, just pop my name in the credits would be much appreciated :)
